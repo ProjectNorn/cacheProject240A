@@ -1,14 +1,14 @@
-CC=gcc
-OPTS=-g -std=c99 -Werror
+CXX=g++
+OPTS=-g -Werror -std=c++11
 
 all: main.o cache.o
-	$(CC) $(OPTS) -lm -o cache main.o cache.o
+	$(CXX) $(OPTS) -lm -o cache main.o cache.o
 
-main.o: main.c cache.h
-	$(CC) $(OPTS) -c main.c
+main.o: main.cpp cache.h
+	$(CXX) $(OPTS) -c main.cpp
 
-cache.o: cache.h cache.c
-	$(CC) $(OPTS) -c cache.c
+cache.o: cache.h cache.cpp
+	$(CXX) $(OPTS) -c cache.cpp
 
 clean:
 	rm -f *.o cache;
